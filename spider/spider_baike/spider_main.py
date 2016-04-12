@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 '''
 Created on 2016年4月11日
 
 @author: Bytterin
 '''
-from baike_spider import url_manager, html_downloader, html_parser,\
+from spider_baike import url_manager, html_downloader, html_parser,\
     html_outputer
 
 
@@ -25,6 +26,7 @@ class SpiderMain(object):
                 new_urls, new_data = self.parser.parse(new_url, html_cont)
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
+                count = count + 1
                 
                 if count == 1000:
                     break
