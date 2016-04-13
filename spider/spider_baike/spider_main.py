@@ -23,12 +23,14 @@ class SpiderMain(object):
                 new_url = self.urls.get_new_url()
                 print 'craw %d : %s' % (count, new_url)
                 html_cont = self.downloader.download(new_url)
+#                 print 'download'   
                 new_urls, new_data = self.parser.parse(new_url, html_cont)
+#                 print 'prsse'
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
                 count = count + 1
                 
-                if count == 1000:
+                if count == 100:
                     break
             except:
                 print "craw faild"
